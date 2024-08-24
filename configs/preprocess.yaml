@@ -1,9 +1,9 @@
 project_path: .
-data_path: PLEASE FILL
+data_path: data/exchange_rate.txt
 read_format: csv
 write_format: parquet
-selected_columns: [EXAMPLE_INPUT_COLUMN_NAME] # should include all target column, can include additional columns
-target_columns: [EXAMPLE_TARGET_COLUMN_NAME]
+selected_columns: ["Australia", "British", "Canada", "Switzerland", "China", "Japan", "NewZealand", "Singapore"] # should include all target column, can include additional columns
+target_columns: ["Australia", "British", "Canada", "Switzerland", "China", "Japan", "NewZealand", "Singapore"]
 return_targets: true
 
 group_proportions:
