@@ -1,7 +1,7 @@
 project_path: .
 ddconfig_path: configs/ddconfigs/exchange_rate.json
-model_path: models/sequifier-default-best-400.onnx
-data_path: data/exchange_rate-split2-reset-index.parquet
+model_path: models/sequifier-default-best-1575.onnx
+data_path: data/exchange_rate-split2-reset.parquet
 
 selected_columns: ["Australia", "British", "Canada", "Switzerland", "China", "Japan", "NewZealand", "Singapore"] # should include all target column, can include additional columns
 target_columns: ["Australia", "British", "Canada", "Switzerland", "China", "Japan", "NewZealand", "Singapore"]
@@ -17,8 +17,8 @@ target_column_types: # 'criterion' in training_spec must also be adapted
 
 output_probabilities: false
 map_to_id: false
-device: mps
-seq_length: 48
-inference_batch_size: 10
+device: cuda
+seq_length: 200
+inference_batch_size: 1
 
 autoregression: true
