@@ -21,4 +21,4 @@ device: cuda
 seq_length: 200
 inference_batch_size: 1
 
-autoregression: true
+autoregression: false
