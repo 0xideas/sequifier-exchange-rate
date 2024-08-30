@@ -1,5 +1,5 @@
 project_path: .
-model_name: default2
+model_name: default4
 read_format: parquet
 ddconfig_path: configs/ddconfigs/exchange_rate.json
 
@@ -15,21 +15,22 @@ target_column_types: # 'criterion' in training_spec must also be adapted
   NewZealand: real
   Singapore: real
 
-seq_length: 200
-inference_batch_size: 10
+seq_length: 1000
+inference_batch_size: 1
 
 export_onnx: true
+export_pt: true
 
 model_spec:
   d_model: 64
   nhead: 12
   d_hid: 64
-  nlayers: 3
+  nlayers: 5
 training_spec:
   device: cuda
-  epochs: 10000
-  iter_save: 100
-  batch_size: 200
+  epochs: 50
+  iter_save: 5
+  batch_size: 16
   log_interval: 10
   lr: 0.001
   accumulation_steps: 1
@@ -46,7 +47,8 @@ training_spec:
   optimizer:
     name: AdamW
   scheduler:
-    name: StepLR
-    step_size: 10
-    gamma: 0.991
+    name: LinearLR
+    start_factor: 1.0
+    end_factor: 0.1
+    total_iters: 50
   continue_training: true
