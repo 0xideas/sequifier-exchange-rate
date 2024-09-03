@@ -11,4 +11,5 @@ group_proportions:
 - 0.1
 - 0.1
 seq_length: 1000
+seq_step_size: 10
 max_rows: null

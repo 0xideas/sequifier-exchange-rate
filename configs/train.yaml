@@ -15,7 +15,7 @@ target_column_types: # 'criterion' in training_spec must also be adapted
   NewZealand: real
   Singapore: real
 
-seq_length: 1000
+seq_length: 100
 inference_batch_size: 1
 
 export_onnx: true
@@ -28,11 +28,11 @@ model_spec:
   nlayers: 5
 training_spec:
   device: cuda
-  epochs: 50
-  iter_save: 5
-  batch_size: 16
+  epochs: 10000
+  iter_save: 100
+  batch_size: 100
   log_interval: 10
-  lr: 0.001
+  lr: 0.0001
   accumulation_steps: 1
   dropout: 0.1
   criterion:
@@ -50,5 +50,5 @@ training_spec:
     name: LinearLR
     start_factor: 1.0
     end_factor: 0.1
-    total_iters: 50
-  continue_training: true
+    total_iters: 10000
+  continue_training: false
